@@ -40,8 +40,6 @@ body {
   font-size: 1.5rem;
 }
 
-/* The form class is used for the form where new habits are added. It's not for
-all form elements */
 .form {
   display: flex;
   flex-direction: column;
@@ -49,6 +47,7 @@ all form elements */
 }
 
 .form__input {
+  width: 100%;
   padding: 1rem;
   font-family: inherit;
   font-size: inherit;
@@ -67,4 +66,52 @@ all form elements */
   padding: 0.5rem 2.5rem;
   align-self: flex-end;
   border: none;
+}
+
+.dates {
+  display: flex;
+  justify-content: space-around;
+  color: #000;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.dates__link {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+}
+
+.dates__link:first-of-type,
+.dates__link:nth-of-type(2),
+.dates__link:last-of-type,
+.dates__link:nth-last-of-type(2) {
+  display: none;
+}
+
+@media screen and (min-width: 25rem) {
+  .dates__link:nth-of-type(2),
+  .dates__link:nth-last-of-type(2) {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 35rem) {
+  .dates__link:first-of-type,
+  .dates__link:last-of-type {
+    display: block;
+  }
+}
+
+.dates__link--current {
+  background: #f9dba0;
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
