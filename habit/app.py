@@ -1,13 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
+
+habits = ["test habit"]
 
 
 @app.route('/')
 def index():
-    return render_template("index.html", title="Habit tracker - Home")
+    return render_template("index.html", habits=habits, title="Habit tracker - Home")
 
 
-@app.route('/add-habit', method=["GET", "Post"])
+@app.route('/add', methods=["GET", "POST"])
 def add_habit():
-    return render_template("add_habit", title="Habit tracker - Add habit")
+    if request.method == "POST":
+        habits.append(request.form.get("habit"))
+    return render_template("add_habit.html", title="Habit tracker - Add habit")
